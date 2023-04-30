@@ -3,16 +3,20 @@ import draftDatabase from "./api/draftApi";
 import {useEffect} from "react";
 
 function App() {
-  useEffect(() => {
-    draftDatabase
-      .get("/character")
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+  const ApiCall = () => {
+    useEffect(() => {
+      draftDatabase
+        .get("/character")
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }, []);
+  };
+
+  ApiCall();
 
   return (
     <div className="App">
