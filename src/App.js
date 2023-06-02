@@ -1,33 +1,24 @@
 import "./App.css";
-import axios from "axios";
-import draftDatabase from "./api/draftApi";
+
+import DraftDatabase from "./api/draftApi";
 import {useEffect} from "react";
 
 function App() {
-  // const ApiCall = () => {
-  //   useEffect(() => {
-  //     draftDatabase
-  //       .get("/character")
-  //       .then((res) => {
-  //         console.log(res.data);
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //       });
-  //   }, []);
-  // };
+  // useEffect(() => {
+  //   const apiCall = async () => {
+  //     let res = await DraftDatabase.get("/character");
 
-  // ApiCall();
+  //     console.log(res.data);
+  //   };
 
-  useEffect(() => {
-    const apicall = async () => {
-      const response = await axios.get("http://localhost:3005/draft/character");
+  //   apiCall();
+  // }, []);
 
-      console.log(response.data);
-    };
+  const searchFunction = (e) => {
+    e.preventDefault();
 
-    apicall();
-  }, []);
+    DraftDatabase.get("/character");
+  };
 
   return (
     <div className="App">
